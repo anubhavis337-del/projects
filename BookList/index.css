@@ -1,0 +1,23 @@
+.container{
+  height: 600px;
+  width: 500px;
+  background-color: rgb(223, 202, 242);
+}
+body{
+    display: flex;
+     }
+
+     form label{
+       margin-top: 10px;
+       margin-bottom:10px;
+       display:block;
+
+     }
+
+     form input{
+      display:block;
+      width:100%;
+      padding:8px;
+      margin-bottom:10px;
+      box-sizing:border-box;
+     }

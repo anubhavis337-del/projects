@@ -1,0 +1,107 @@
+body {
+  background-color: rgb(136, 169, 194);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.box {
+  background-color: rgb(163, 174, 187);
+  height: 650px;
+  width: 700px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid black;
+
+}
+
+#head {
+  /* align-items: center;
+        justify-content: center; */
+  display: flex;
+  margin-top: 5px;
+}
+
+#head .img {
+  margin-left: 2%;
+}
+
+#head .stuff {
+  margin-left: 20%;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#myform {
+  display: grid;
+  gap:5px;
+
+
+}
+
+.task-row{
+ margin-top: 0;
+}
+#taskInput {
+  border: 2px solid black;
+  margin-left: 10px;
+  width: 70%;
+  padding: 9px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+#searchInput {
+  width: 60%;
+  padding: 8px;
+  margin-left: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+#submit {
+  height: 30px;
+  width: 70px;
+  background-color: blue;
+  font-size: large;
+  border:2px solid black;
+  margin-left: 10px;
+}
+
+.items{
+  max-height: 400px;
+  overflow-y: auto;
+
+}
+#tasklist{
+  padding:0;
+  margin: 0;
+}
+
+#taskList li{
+  background-color: whitesmoke;
+  color: black;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  max-height: 300px;
+  border-radius: 5p;
+
+  
+}
+
+#taskList li button{
+  background-color: rgb(225, 209, 86);
+  margin-left: 70%;
+  height: 20px;
+  width: 60px;
+  border: 2px solid black;
+  border-radius: 5px;
+  flex-shrink: 0;
+}

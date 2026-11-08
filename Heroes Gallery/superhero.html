@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Archive</title>
+    <link rel="stylesheet" href="heroes.css">
+</head>
+<body>
+
+    <header>
+        <h2>HERO<span>ARCHIVE</span></h2>
+        <nav>
+            <a href="#">Discover</a>
+            <a href="#">Heroes</a>
+            <a href="#" id="logout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <p class="tagline">YOUR UNIVERSE OF HEROES</p>
+            <h1>Find Your <span>Superhero.</span></h1>
+            <p class="description">
+                Explore their identities, powers, and extraordinary stories.
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchinput"
+                    placeholder="Search superhero by name..."
+                >
+                <button id="searchBtn">Search</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="section-heading">
+                <h2>Explore Heroes</h2>
+                <p>Discover the legends behind the masks.</p>
+            </div>
+
+            <div id="heroResults" class="hero-grid">
+                <!-- JavaScript will display superhero details here -->
+            </div>
+
+            <p id="message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>HERO ARCHIVE &copy; 2026 | Built for superhero fans</p>
+    </footer>
+
+    <script src="task.js"></script>
+</body>
+</html>

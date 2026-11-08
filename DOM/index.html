@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 5px;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        height: 110vh;
+        display: flex;
+        padding: 25px;
+        gap: 20px;
+        background-color: rgb(150, 103, 193);
+        border: 3px solid black;
+        position: relative;
+      }
+
+      #boxes {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(5, 200px);
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(173, 89, 180);
+        border: 5px solid black;
+        border-radius: 50px;
+        font-style: italic;
+        font-weight: 800;
+        font-size: larger;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+      #addBtn {
+        position: absolute;
+        left: 90%;
+        margin-top: 35%;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid black;
+        font-size: 30px;
+        background-color: brown;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div id="boxes"></div>
+      <button id="addBtn">+</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

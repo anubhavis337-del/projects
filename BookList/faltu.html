@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest | Book Manager</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f5f5ef;
+      color: #23382e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #203c30;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+    }
+
+    .logo span {
+      color: #b8d7b1;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #d0ddd4;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 22px;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+    }
+
+    .welcome small {
+      color: #63816d;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .welcome h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 42px);
+      margin: 10px 0;
+    }
+
+    .welcome p {
+      color: #718077;
+      line-height: 1.7;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid #e5e9e0;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px #263c3010;
+    }
+
+    .panel h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .subtext {
+      color: #849087;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 17px 0 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #dce3da;
+      border-radius: 9px;
+      outline: none;
+      font: inherit;
+      font-size: 14px;
+      background: #fcfcfa;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #56846a;
+      box-shadow: 0 0 0 3px #56846a18;
+    }
+
+    .add-btn {
+      width: 100%;
+      border: none;
+      border-radius: 9px;
+      padding: 14px;
+      margin-top: 23px;
+      background: #315b43;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .add-btn:hover {
+      background: #244632;
+      transform: translateY(-2px);
+    }
+
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .count {
+      background: #e7f0e5;
+      color: #315b43;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .search {
+      margin-bottom: 20px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #f5f7f2;
+      color: #738075;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 14px 12px;
+    }
+
+    td {
+      padding: 17px 12px;
+      border-bottom: 1px solid #edf0ea;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .book-title {
+      font-weight: 700;
+      color: #2b4435;
+    }
+
+    .delete-btn {
+      background: #fff0ed;
+      color: #bd5947;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .delete-btn:hover {
+      background: #fbdcd6;
+    }
+
+    .empty {
+      padding: 45px 10px;
+      text-align: center;
+      color: #829087;
+      line-height: 2;
+    }
+
+    .empty .icon {
+      font-size: 38px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #8a968b;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        margin: 30px auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      th, td {
+        padding: 12px 8px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Book<span>Nest.</span></div>
+    <p>YOUR PERSONAL BOOK COLLECTION</p>
+  </header>
+
+  <main>
+
+    <section class="welcome">
+      <small>YOUR LIBRARY</small>
+      <h1>Every book has a story.</h1>
+      <p>Keep your favourite reads organized, all in one place.</p>
+    </section>
+
+    <div class="layout">
+
+      <!-- Add Book Form -->
+      <section class="panel">
+        <h2>＋ Add a new book</h2>
+        <p class="subtext">Enter the details of your book below.</p>
+
+        <form id="bookForm">
+          <label for="title">Book Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="e.g. The Alchemist"
+            required
+          >
+
+          <label for="author">Author Name</label>
+          <input
+            type="text"
+            id="author"
+            placeholder="e.g. Paulo Coelho"
+            required
+          >
+
+          <label for="isbn">ISBN Number</label>
+          <input
+            type="text"
+            id="isbn"
+            placeholder="e.g. 9780061122415"
+            required
+          >
+
+          <button type="submit" class="add-btn">
+            + Add Book to Library
+          </button>
+        </form>
+      </section>
+
+      <!-- Book List -->
+      <section class="panel">
+        <div class="list-header">
+          <div>
+            <h2>My Collection</h2>
+            <p class="subtext" style="margin: 6px 0 0">
+              All your books, neatly organized.
+            </p>
+          </div>
+
+          <span class="count" id="bookCount">0 BOOKS</span>
+        </div>
+
+        <input
+          class="search"
+          type="search"
+          id="search"
+          placeholder="Search by title, author or ISBN..."
+          aria-label="Search books"
+        >
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="bookList"></tbody>
+          </table>
+        </div>
+
+        <div class="empty" id="emptyMessage">
+          <div class="icon">📚</div>
+          <strong>Your library is waiting!</strong>
+          <p>Add your first book using the form.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    Made for readers, dreamers & lifelong learners.
+  </footer>
+
+  <script>
+    const form = document.getElementById("bookForm");
+    const titleInput = document.getElementById("title");
+    const authorInput = document.getElementById("author");
+    const isbnInput = document.getElementById("isbn");
+    const bookList = document.getElementById("bookList");
+    const bookCount = document.getElementById("bookCount");
+    const emptyMessage = document.getElementById("emptyMessage");
+    const searchInput = document.getElementById("search");
+
+    let books = JSON.parse(
+      localStorage.getItem("booknest-books") || "[]"
+    );
+
+    function saveBooks() {
+      localStorage.setItem(
+        "booknest-books",
+        JSON.stringify(books)
+      );
+    }
+
+    function renderBooks() {
+      bookList.replaceChildren();
+
+      const query = searchInput.value.toLowerCase().trim();
+
+      const filteredBooks = books.filter(book =>
+        [book.title, book.author, book.isbn].some(value =>
+          value.toLowerCase().includes(query)
+        )
+      );
+
+      bookCount.textContent =
+        `${books.length} ${books.length === 1 ? "BOOK" : "BOOKS"}`;
+
+      emptyMessage.style.display =
+        filteredBooks.length === 0 ? "block" : "none";
+
+      if (books.length > 0 && filteredBooks.length === 0) {
+        emptyMessage.querySelector("strong").textContent =
+          "No matching books found.";
+        emptyMessage.querySelector("p").textContent =
+          "Try another search.";
+      } else if (books.length === 0) {
+        emptyMessage.querySelector("strong").textContent =
+          "Your library is waiting!";
+        emptyMessage.querySelector("p").textContent =
+          "Add your first book using the form.";
+      }
+
+      filteredBooks.forEach(book => {
+        const row = document.createElement("tr");
+
+        const titleCell = document.createElement("td");
+        titleCell.className = "book-title";
+        titleCell.textContent = book.title;
+
+        const authorCell = document.createElement("td");
+        authorCell.textContent = book.author;
+
+        const isbnCell = document.createElement("td");
+        isbnCell.textContent = book.isbn;
+
+        const actionCell = document.createElement("td");
+        const deleteButton = document.createElement("button");
+
+        deleteButton.className = "delete-btn";
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute(
+          "aria-label",
+          `Delete ${book.title}`
+        );
+
+        deleteButton.addEventListener("click", () => {
+          books = books.filter(item => item.id !== book.id);
+          saveBooks();
+          renderBooks();
+        });
+
+        actionCell.appendChild(deleteButton);
+
+        row.append(
+          titleCell,
+          authorCell,
+          isbnCell,
+          actionCell
+        );
+
+        bookList.appendChild(row);
+      });
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const title = titleInput.value.trim();
+      const author = authorInput.value.trim();
+      const isbn = isbnInput.value.trim();
+
+      if (!title || !author || !isbn) return;
+
+      books.push({
+        id: crypto.randomUUID(),
+        title,
+        author,
+        isbn
+      });
+
+      saveBooks();
+      renderBooks();
+
+      form.reset();
+      titleInput.focus();
+    });
+
+    searchInput.addEventListener("input", renderBooks);
+
+    renderBooks();
+  </script>
+
+</body>
+</html>

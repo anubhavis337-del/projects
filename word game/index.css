@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(135deg, #141e30, #243b55);
+
+  color: white;
+}
+
+/* Main game box */
+
+.game-container {
+  width: 450px;
+  max-width: 90%;
+
+  padding: 40px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(10px);
+}
+
+/* Heading */
+
+h1 {
+  font-size: 38px;
+
+  margin-bottom: 30px;
+
+  letter-spacing: 1px;
+
+  color: #ffffff;
+}
+
+/* Random word */
+
+#currentWord {
+  font-size: 38px;
+
+  font-weight: bold;
+
+  margin-bottom: 25px;
+
+  color: #ffd166;
+
+  min-height: 45px;
+}
+
+/* Input */
+
+#textInput {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  font-size: 20px;
+
+  text-align: center;
+
+  color: #222;
+
+  background: white;
+
+  border: 3px solid transparent;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+#textInput:focus {
+  border-color: #ffd166;
+
+  box-shadow: 0 0 12px rgba(255, 209, 102, 0.5);
+}
+
+#textInput::placeholder {
+  color: #888;
+}
+
+/* Message */
+
+#message {
+  min-height: 35px;
+
+  margin-top: 18px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  color: #ffffff;
+}
+
+/* Score + Time container */
+
+.stats {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  margin-top: 25px;
+}
+
+/* Score and Time boxes */
+
+.stat-box {
+  flex: 1;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+/* Score */
+
+.score-box {
+  background: rgba(76, 201, 240, 0.18);
+
+  border: 1px solid #4cc9f0;
+
+  color: #4cc9f0;
+}
+
+/* Time */
+
+.time-box {
+  background: rgba(255, 107, 107, 0.18);
+border: 1px solid #ff6b6b;
+color: #ff6b6b;
+}
+
+.stat-label {
+  font-size: 18px;
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 500px) {
+  .game-container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  #currentWord {
+    font-size: 30px;
+  }
+
+  .stats {
+    gap: 10px;
+  }
+
+  .stat-box {
+    padding: 12px 8px;
+    font-size: 18px;
+  }
+}

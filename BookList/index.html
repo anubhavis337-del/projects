@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest - My Library</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f1;
+      color: #263c30;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #203d30;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 27px;
+    }
+
+    header h2 span {
+      color: #a8d5ad;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #d4e2d5;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+    }
+
+    .welcome small {
+      color: #60816a;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .welcome h1 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      margin: 12px 0;
+    }
+
+    .welcome p {
+      color: #78847a;
+      line-height: 1.6;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e3e9df;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 25px #203d300d;
+    }
+
+    .card h2 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #899389;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 18px 0 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #dce4da;
+      background: #fafbf8;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #4c7b58;
+    }
+
+    #add-btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #315c41;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-btn:hover {
+      background: #244630;
+      transform: translateY(-2px);
+    }
+
+    .list-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background: #e7f0e5;
+      color: #315c41;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .search {
+      margin-bottom: 20px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #f2f5ef;
+      color: #728074;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 15px 10px;
+    }
+
+    td {
+      padding: 17px 10px;
+      border-bottom: 1px solid #edf0e9;
+      font-size: 13px;
+    }
+
+    td:first-child {
+      font-weight: bold;
+    }
+
+    .delete-btn {
+      border: none;
+      background: #fff0ed;
+      color: #bd5947;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #899389;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .welcome h1 {
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      th, td {
+        padding: 12px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Book<span>Nest.</span></h2>
+    <p>YOUR PERSONAL LIBRARY</p>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <small>MY COLLECTION</small>
+      <h1>Every book has a story.</h1>
+      <p>Organize your favourite books in one beautiful place.</p>
+    </section>
+
+    <div class="layout">
+
+      <!-- Book Form -->
+      <section class="card">
+        <h2>＋ Add a Book</h2>
+        <p class="description">Enter your book details below.</p>
+
+        <form id="form-list">
+          <label for="title">Book Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter book title"
+            required
+          >
+
+          <label for="author">Author Name</label>
+          <input
+            type="text"
+            id="author"
+            placeholder="Enter author name"
+            required>
+
+          <label for="isbn">ISBN Number</label>
+          <input
+            type="text"
+            id="isbn"
+            placeholder="Enter ISBN number"
+            required>
+
+          <button id="add-btn" type="submit">
+            + Add Book
+          </button>
+        </form>
+      </section>
+
+      <!-- Book List -->
+      <section class="card">
+        <div class="list-heading">
+          <h2>My Book List</h2>
+          <span class="badge">MY LIBRARY</span>
+        </div>
+
+        <p class="description">
+          A little space for your next great read.
+        </p>
+
+        <input
+          id="search"
+          type="text"
+          placeholder="Search your books..."
+        >
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+ <tbody id="book-list"></tbody>
+<!--              
+                  <button class="delete-btn" type="button">
+                    Delete
+                  </button>
+                 -->
+              
+        </div>
+      </section>
+
+    <!-- </div>
+  </main> -->
+
+  <footer>
+    Made with care for every book lover. © 2026 BookNest
+  </footer>
+   </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
+
+
+//add on feature---mark status..., bookshell, experience,
+
+

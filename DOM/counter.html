@@ -1,0 +1,250 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      #container {
+        background-color: rgb(123, 210, 181);
+        height: 500px;
+        width: 600px;
+        margin-left: 30%;
+        margin-top: 5%;
+      }
+
+      .container #button{
+       margin-top: 50%;
+       display: flex;
+       align-items: center;
+       
+      }
+    </style>
+  </head>
+  <body>
+     <h1 id="number">0</h1>
+    <div id="container">
+       
+      <button id="plus">+</button>
+      <button id="reset">Reset</button>
+      <button id="sub">-</button>
+
+    </div>
+    <script src="counter.js"></script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+   
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 5% 5%, #ffdc9e 0%, transparent 30%),
+    radial-gradient(ellipse at 95% 95%, #ffb8c5 0%, transparent 32%),
+    #fff8ee;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Decorative background circles */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+body::before {
+  background: #ffc66e;
+  top: -100px;
+  left: -70px;
+}
+
+body::after {
+  background: #ff8da5;
+  bottom: -110px;
+  right: -70px;
+}
+
+/* Main number */
+#number {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 35px;
+  font-size: clamp(100px, 16vw, 150px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -6px;
+  color: #172b4d;
+  text-shadow: 0 8px 0 rgba(23, 43, 77, 0.05);
+}
+
+#number::after {
+  content: "";
+  display: block;
+  width: 65%;
+  height: 8px;
+  margin: 12px auto 0;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ffc94a, #ff6688);
+}
+
+/* Counter card */
+#container {
+  position: relative;
+  z-index: 1;
+  width: min(90%, 540px);
+  min-height: 210px;
+  margin: 0;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid transparent;
+  border-radius: 32px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.9),
+                    rgba(255, 255, 255, 0.9)) padding-box,
+    linear-gradient(120deg, #ffe29b, #ffb5ca) border-box;
+
+  box-shadow:
+    0 25px 60px rgba(119, 76, 92, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* All buttons */
+#container button {
+  height: 88px;
+  min-width: 88px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 27px;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              filter 0.2s ease;
+}
+
+#container button:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.05);
+}
+
+#container button:active {
+  transform: scale(0.94);
+}
+
+/* Plus button */
+#plus {
+  color: white;
+  background: linear-gradient(145deg, #42e6a1, #08a879);
+  box-shadow: 0 12px 25px rgba(8, 168, 121, 0.25);
+}
+
+/* Reset button */
+#reset {
+  flex: 1;
+  color: #253956;
+  background: linear-gradient(145deg, #ffffff, #edf0f8);
+  border: 2px solid #e8eaf2 !important;
+  box-shadow: 0 10px 22px rgba(37, 57, 86, 0.12);
+  font-size: 19px !important;
+}
+
+/* Minus button */
+#sub {
+  color: white;
+  background: linear-gradient(145deg, #ff7180, #e91e63);
+  box-shadow: 0 12px 25px rgba(233, 30, 99, 0.22);
+}
+
+/* Small screen support */
+@media (max-width: 480px) {
+  #container {
+    gap: 12px;
+    min-height: 165px;
+    padding: 22px 14px;
+    border-radius: 24px;
+  }
+
+  #container button {
+    height: 65px;
+    min-width: 60px;
+    padding: 0 14px;
+    border-radius: 20px;
+    font-size: 26px;
+  }
+
+  #reset {
+    font-size: 16px !important;
+  }
+
+  #number {
+    margin-bottom: 28px;
+  }
+}
+
+
+#mood {
+  font-size: 65px;
+  margin-bottom: 25px;
+  animation: moodPop 0.3s ease;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes moodPop {
+  0% {
+    transform: scale(0.5) rotate(-15deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+    <h1 id="number">0</h1>
+    <div id="mood">😐</div>
+    <div id="container">
+      <button id="plus">+</button>
+      <button id="reset">Reset</button>
+      <button id="sub">-</button>
+    </div>
+    <script src="counter.js"></script>
+  </body>
+</html>
