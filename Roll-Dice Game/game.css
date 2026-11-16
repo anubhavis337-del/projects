@@ -18,3 +18,12 @@ body {
 #div{
   background-color: black;
 }
+
+#no1{
+  background-color: aqua;
+  width: 50%;
+}
+
+.box{
+  background-color: red;
+}
