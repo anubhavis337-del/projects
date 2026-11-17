@@ -1,22 +1,60 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rolling Dice Game</title>
     <link rel="stylesheet" href="game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
+
   <body>
-    <h1>Rolling-Dice Game</h1>
-    <div class="box">
-      <div id="no1">
-        <button id="Player1">Player 1</button>
+    <div class="container">
+      <h1>🎲 Rolling Dice Game</h1>
+      <p class="subtitle">Roll the dice and test your luck!</p>
+
+      <div class="box">
+
+        <div id="no1">
+          <h2>PLAYER 1</h2>
+          <div class="player-icon">🎲</div>
+          <button id="Player1">Roll Dice</button>
+          <div id="add"></div>
+          <div id="msg"></div>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div id="no2">
+          <h2>PLAYER 2</h2>
+          <div class="player-icon">🎲</div>
+          <button id="Player2">Roll Dice</button>
+          <div id="add2"></div>
+          <div id="msg2"></div>
+        </div>
+
       </div>
 
-      <div id="no2">
-        <button id="Player2">Player 2</button>
-      </div>
+      <p class="footer">May the luckiest player win! ✨</p>
     </div>
+ 
+<!-- Winner Popup -->
+<div id="winnerModal">
+  <div class="winner-card">
+    <div class="trophy">🏆</div>
+
+    <h1>CONGRATULATIONS!</h1>
+
+    <p id="winnerText">Player 1 Wins!</p>
+
+    <p class="winner-subtitle">You are the champion!</p>
+
+    <button id="restartBtn">↻ Restart Game</button>
+  </div>
+</div>
 
     <script src="game.js"></script>
   </body>
