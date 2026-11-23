@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,7 @@
 
 body {
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #090e1c, #151d35, #25143d);
   color: white;
   display: flex;
@@ -109,7 +108,6 @@ button:active {
   color: #facc15;
 }
 
-
 /* Hide winner messages when empty */
 #msg:empty,
 #msg2:empty {
@@ -139,7 +137,6 @@ button:active {
 
   box-shadow: 0 0 35px rgba(74, 222, 128, 0.4);
 }
-
 
 .vs {
   font-size: 25px;
@@ -175,7 +172,6 @@ button:active {
     font-size: 20px;
   }
 }
-
 
 /* Winner Modal */
 #winnerModal {

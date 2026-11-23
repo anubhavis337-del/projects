@@ -4,8 +4,8 @@ const no1 = document.getElementById("no1");
 const no2 = document.getElementById("no2");
 const add = document.getElementById("add");
 const add2 = document.getElementById("add2");
-const msg=document.getElementById("msg");
-const msg2=document.getElementById("msg2")
+const msg = document.getElementById("msg");
+const msg2 = document.getElementById("msg2");
 
 const winnerModal = document.getElementById("winnerModal");
 const winnerText = document.getElementById("winnerText");
@@ -20,20 +20,20 @@ restartBtn.addEventListener("click", function () {
   location.reload();
 });
 
-let currentTurn=1
+let currentTurn = 1;
 
-function updateTurn(){
-  player1.disabled = currentTurn !==1;
-  player2.disabled = currentTurn !==2;
+function updateTurn() {
+  player1.disabled = currentTurn !== 1;
+  player2.disabled = currentTurn !== 2;
 }
 
 // console.log(no1,no2,player1,player2)
 
 let sum = 0;
 player1.addEventListener("click", function () {
-  currentTurn =2;
+  currentTurn = 2;
   let random1 = Math.floor(Math.random() * 6) + 1;
-  updateTurn()
+  updateTurn();
   if (sum + random1 > 20) {
     alert("Try again");
   } else if (sum + random1 <= 20) {
@@ -44,16 +44,15 @@ player1.addEventListener("click", function () {
     boxes.textContent = random1;
     no1.appendChild(boxes);
   }
-  if(sum===20){
-  showWinner("Player 1");
+  if (sum === 20) {
+    showWinner("Player 1");
   }
-
 });
 
 let sum2 = 0;
 player2.addEventListener("click", function () {
-  currentTurn=1;
-  updateTurn()
+  currentTurn = 1;
+  updateTurn();
   let random2 = Math.floor(Math.random() * 6) + 1;
 
   if (sum2 + random2 > 20) {
@@ -66,7 +65,7 @@ player2.addEventListener("click", function () {
     num.textContent = random2;
     no2.appendChild(num);
   }
-  if(sum2===20){
-  showWinner("Player 2");
+  if (sum2 === 20) {
+    showWinner("Player 2");
   }
 });
